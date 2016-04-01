@@ -103,7 +103,7 @@ class GoodDelete(DeleteView, GoodEditMixin, GoodEditView):
         return super(GoodDelete, self).post(request,*args,**kwargs)
     def get_context_data(self, **kwargs):
         context = super(GoodDelete, self).get_context_data(**kwargs)
-        context["good"]= Good.objects.get(pk = kwargs["good_id"])
+        context["good"]= Good.objects.get(pk = self.kwargs["good_id"])
         return context
 
 
